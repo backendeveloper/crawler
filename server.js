@@ -12,7 +12,7 @@ const app = express();
 var counter = 0;
 var blockedCounter = 0;
 let scrape = async () => {
-    const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
 
     await page.goto('https://www.sahibinden.com/ilan/emlak-konut-satilik-b.duzu-metrobuse-5dk-125m2-tertemiz-daire-iskanli-yeni-yapi-654470042/detay', { waitUntil: 'networkidle2' });
